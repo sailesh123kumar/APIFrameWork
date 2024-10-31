@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Test Suite" verbose="3">
+	
+	<listeners>
+		<listener class-name="com.qa.api.listeners.ExtentReportListener">
+		</listener>
+	
+	</listeners>
+
+	<test name="Create User Test">
+		<classes>
+			<class name="com.qa.api.tests.CreateUserTest" />
+		</classes>
+	</test>
+
+	<test name="Update User Test">
+		<classes>
+			<class name="com.qa.api.tests.UpdateUserRequest" />
+		</classes>
+	</test>
+
+	<test name="Delete User Test">
+		<classes>
+			<class name="com.qa.api.tests.DeleteUsertest" />
+		</classes>
+	</test>
+
+	<test name="Patch User Test">
+		<classes>
+			<class name="com.qa.api.tests.PatchUserTest" />
+		</classes>
+	</test>
+
+	<test name="Get User Test">
+		<classes>
+			<class name="com.qa.api.tests.GetUserTest" />
+		</classes>
+	</test> 
+	
+	<test name="ReqRes Get User Test">
+		<classes>
+			<class name="com.qa.reqres.api.tests.ReqResTest" />
+		</classes>
+	</test> 
+	
+	<test name="Contacts Get User Test">
+		<classes>
+			<class name="com.qa.contacts.api.tests.ContactsAPITest" />
+		</classes>
+	</test> 
+	
+	<test name="products User Test">
+		<classes>
+			<class name="com.qa.product.api.tests.ProductsAPIest" />
+		</classes>
+	</test> 
+	
+	<test name="BasicAuth User Test">
+		<classes>
+			<class name="com.qa.basicauth.api.test.BasicAuthTest" />
+		</classes>
+	</test> 
+	
+	<test name="OAuth2 User Test">
+		<classes>
+			<class name="com.qa.amadeus.api.test.OAuth2WorkflowTest" />
+		</classes>
+	</test> 
+	
+	<test name="Gorest SchemaTest">
+		<classes>
+			<class name="com.qa.schemavalidation.api.test.GorestSchemaTest" />
+		</classes>
+	</test> 
+	
+	<test name="Product SchemaTest">
+		<classes>
+			<class name="com.qa.schemavalidation.api.test.ProductSchemaTest" />
+		</classes>
+	</test> 
+	
+</suite> 
