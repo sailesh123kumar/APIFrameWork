@@ -1,16 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>APIFrameWork</groupId>
-  <artifactId>APIFrameWork</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>jar</packaging>
+	<groupId>APIFrameWork</groupId>
+	<artifactId>APIFrameWork</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 
-  <name>APIFrameWork</name>
-  <url>http://maven.apache.org</url>
+	<name>APIFrameWork</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
+	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
@@ -60,7 +61,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.18</version>
+			<version>1.18.24</version>
 		</dependency>
 
 
@@ -95,6 +96,87 @@
 			<artifactId>extentreports</artifactId>
 			<version>5.0.8</version>
 		</dependency>
+
+
+		<dependency>
+			<groupId>org.wiremock</groupId>
+			<artifactId>wiremock</artifactId>
+			<version>3.9.2</version>
+		</dependency>
+
+
+
 	</dependencies>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<source>11</source>
+					<target>11</target>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.20</version>
+
+				<configuration>
+					<forkCount>3</forkCount>
+					<reuseForks>true</reuseForks>
+					<suiteXmlFiles>
+						 <suiteXmlFile>src/test/resources/testrunners/testng_regression.xml</suiteXmlFile> 
+<!--						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>-->
+					</suiteXmlFiles>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+
+
+	</build>
+
+	<reporting>
+		<plugins>
+			<!-- Site Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.12.1</version>
+			</plugin>
+
+			<!-- JavaDoc Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.6.3</version>
+				<configuration>
+					<show>private</show>  <!-- show all classes and members -->
+				</configuration>
+			</plugin>
+
+			<!-- Project Info Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>3.5.0</version>
+			</plugin>
+
+			<!-- Test Results Plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>3.2.5</version>
+			</plugin>
+		</plugins>
+	</reporting>
+
 
 </project>

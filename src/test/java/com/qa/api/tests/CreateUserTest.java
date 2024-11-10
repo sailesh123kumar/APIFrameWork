@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Map;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.api.base.BaseTest;
@@ -16,11 +17,20 @@ import io.restassured.response.Response;
 
 public class CreateUserTest extends BaseTest {
 	
+	@DataProvider
+	public Object[][] getUserData() {
+		return new Object[][] {
+			{"sailesh","male","active"},
+			{"asha","male","inactive"},
+			{"prathiksha","male","active"},
+			{"viniksha","male","active"}
+		};
+	}
 	
-	@Test
-	public void createUserTest() {
+	@Test(dataProvider = "getUserData")
+	public void createUserTest(String name, String gender,String status) {
 
-		User user = new User(null,"Sailesh",UtilString.getRandomEmailId(),"male","active");
+		User user = new User(null,name,UtilString.getRandomEmailId(),gender,status);
 		Response response = restclient.post(BASE_URL_GOREST,"/public/v2/users", user, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(response.getStatusCode(), 201);
 	}

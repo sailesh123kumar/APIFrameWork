@@ -1,6 +1,7 @@
 package com.qa.api.tests;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.api.base.BaseTest;
@@ -13,13 +14,24 @@ import io.restassured.response.Response;
 
 public class UpdateUserRequest extends BaseTest{
 	
-	@Test
-	public void updateUserWithBuiderTest() {
+	
+	@DataProvider
+	public Object[][] getUserData() {
+		return new Object[][] {
+			{"sailesh","male","active","female","inactive"},
+			{"asha","male","inactive","female","active"},
+			{"prathiksha","male","active","female","inactive"},
+			{"viniksha","male","active","female","inactive"}
+		};
+	}
+	
+	@Test(dataProvider = "getUserData")
+	public void updateUserWithBuiderTest(String name, String gender,String status,String updateGender,String updateStatus) {
 		User user = User.builder()
-				.name("sailesh")
+				.name(name)
 				.email(UtilString.getRandomEmailId())
-				.gender("male")
-				.status("inactive")
+				.gender(gender)
+				.status(status)
 				.build();
 		
 		//1.POST: Create the user
@@ -37,8 +49,8 @@ public class UpdateUserRequest extends BaseTest{
 		Assert.assertEquals(getresponse.jsonPath().getString("id"), userId);
 		
 		//update the user detail using the setter
-		user.setStatus("active");
-		user.setGender("female");
+		user.setStatus(updateStatus);
+		user.setGender(updateGender);
 		
 		//3.PUT: update the same user using the same userid
 		Response putresponse = restclient.put(BASE_URL_GOREST,ENDPOINT_GOREST_USERS+userId, user, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
