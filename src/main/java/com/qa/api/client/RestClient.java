@@ -55,7 +55,7 @@ public class RestClient {
 			break;
 
 		case BASIC_AUTH:
-			request.header("Authorization", "Basic " +generateBasicAuhToken());
+			request.header("Authorization", "Basic " +generateBasicAuthToken());
 			break;
 
 		case API_KEY:
@@ -67,7 +67,7 @@ public class RestClient {
 			break;
 
 		default:
-			System.out.println("This Auth is not Supported...please pass the righ auth type");
+			System.out.println("This Auth is not Supported...please pass the right auth type");
 			throw new FrameWorkException("===AUTH NOT SUPPORTED===");
 		}
 		
@@ -85,7 +85,7 @@ public class RestClient {
 		}
 		
 		if(pathParam != null) {
-			request.queryParams(pathParam);
+			request.pathParams(pathParam);
 		}
 	}
 
@@ -109,7 +109,7 @@ public class RestClient {
 	 * this method is used to generate the Base64 encoded String
 	 * @return
 	 */
-	private String generateBasicAuhToken() {
+	private String generateBasicAuthToken() {
 		
 		String credentials = ConfigManager.get("basicUsername")+":"+ConfigManager.get("basicPassword");
 		return Base64.getEncoder().encodeToString(credentials.getBytes());
