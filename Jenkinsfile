@@ -44,7 +44,7 @@ pipeline
         }
                 
      
-        stage('Publish Allure Reports') {
+        stage('Publish Regression Allure Reports') {
            steps {
                 script {
                     allure([
@@ -88,6 +88,20 @@ pipeline
             }
         }
         
+        
+         stage('Publish Sanity Allure Reports') {
+           steps {
+                script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: '/allure-results']]
+                    ])
+                }
+            }
+        }
         
          stage('Publish Sanity Extent Report'){
             steps{
