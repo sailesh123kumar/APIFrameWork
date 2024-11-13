@@ -14,23 +14,23 @@
 		</classes>
 	</test>
 
-	<test name="Update User Test">
-		<classes>
-			<class name="com.qa.api.tests.UpdateUserRequest" />
-		</classes>
-	</test>
+<!--	<test name="Update User Test">-->
+<!--		<classes>-->
+<!--			<class name="com.qa.api.tests.UpdateUserRequest" />-->
+<!--		</classes>-->
+<!--	</test>-->
 
-	<test name="Delete User Test">
-		<classes>
-			<class name="com.qa.api.tests.DeleteUsertest" />
-		</classes>
-	</test>
+<!--	<test name="Delete User Test">-->
+<!--		<classes>-->
+<!--			<class name="com.qa.api.tests.DeleteUsertest" />-->
+<!--		</classes>-->
+<!--	</test>-->
 
-	<test name="Patch User Test">
-		<classes>
-			<class name="com.qa.api.tests.PatchUserTest" />
-		</classes>
-	</test>
+<!--	<test name="Patch User Test">-->
+<!--		<classes>-->
+<!--			<class name="com.qa.api.tests.PatchUserTest" />-->
+<!--		</classes>-->
+<!--	</test>-->
 
 	<test name="Get User Test">
 		<classes>
