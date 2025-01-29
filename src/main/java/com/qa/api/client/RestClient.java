@@ -89,6 +89,20 @@ public class RestClient {
 			request.pathParams(pathParam);
 		}
 	}
+	
+	private void applyParams(RequestSpecification request,Map<String, String> headersParam,Map<String, String> queryParam,Map<String, String> pathParam) {
+		if(queryParam != null) {
+			request.queryParams(queryParam);
+		}
+		
+		if(pathParam != null) {
+			request.pathParams(pathParam);
+		}
+		
+		if(headersParam != null) {
+			request.headers(headersParam);
+		}
+	}
 
 	private String generateOAUTH2Token() {
 
@@ -133,11 +147,11 @@ public class RestClient {
 	 * @return it returns the get api response
 	 */
 	
-	public Response get(String baseUrl ,String endpoint, Map<String, String> queryParam,Map<String, String> pathParam ,
+	public Response get(String baseUrl ,String endpoint,Map<String, String> headersParam, Map<String, String> queryParam,Map<String, String> pathParam ,
 						AuthType authType, ContentType contentType) {
 		
 		RequestSpecification request = setUpAuthandContentType(baseUrl,authType, contentType);
-		applyParams(request, queryParam, pathParam);
+		applyParams(request,headersParam, queryParam, pathParam);
 				
 		Response response = request.get(endpoint).then().spec(responseSpec200or404).extract().response();
 		response.prettyPrint();
@@ -157,7 +171,7 @@ public class RestClient {
 	 * @param contentType
 	 * @return it returns the post api response
 	 */
-	public <T>Response post(String baseUrl,String endpoint,T body, 
+	public <T>Response post(String baseUrl,String endpoint,T body,Map<String, String> headersParam, 
 			Map<String, String> queryParam,	Map<String, String> pathParam ,
 			AuthType authType, ContentType contentType) {
 		
@@ -182,7 +196,7 @@ public class RestClient {
 	 * @param contentType
 	 * @return it returns the post api response
 	 */
-	public Response post(String baseUrl,String endpoint,File body, 
+	public Response post(String baseUrl,String endpoint,File body,Map<String, String> headersParam, 
 			Map<String, String> queryParam,	Map<String, String> pathParam ,
 			AuthType authType, ContentType contentType) {
 		
@@ -207,7 +221,7 @@ public class RestClient {
 	 * @param contentType
 	 * @return it returns the put api response
 	 */
-	public <T>Response put(String baseUrl,String endpoint,T body, 
+	public <T>Response put(String baseUrl,String endpoint,T body,Map<String, String> headersParam, 
 			Map<String, String> queryParam,	Map<String, String> pathParam ,
 			AuthType authType, ContentType contentType) {
 		
@@ -231,7 +245,7 @@ public class RestClient {
 	 * @param contentType
 	 * @return it returns the patch api response
 	 */
-	public <T>Response patch(String baseUrl,String endpoint,T body, 
+	public <T>Response patch(String baseUrl,String endpoint,T body,Map<String, String> headersParam, 
 			Map<String, String> queryParam,	Map<String, String> pathParam ,
 			AuthType authType, ContentType contentType) {
 		
@@ -253,7 +267,7 @@ public class RestClient {
 	 * @param contentType
 	 * @return it returns the delete apis response
 	 */
-	public Response delete(String baseUrl,String endpoint, 
+	public Response delete(String baseUrl,String endpoint,Map<String, String> headersParam, 
 			Map<String, String> queryParam,	Map<String, String> pathParam ,
 			AuthType authType, ContentType contentType) {
 		

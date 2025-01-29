@@ -14,7 +14,7 @@ public class BasicAuthTest extends BaseTest{
 	@Test
 	public void authTest() {
 		
-		Response response = restclient.get(BASE_URL_BASIC_AUTH, ENDPOINT_BASIC_AUTH, null, null, AuthType.BASIC_AUTH, ContentType.ANY);
+		Response response = restclient.get(BASE_URL_BASIC_AUTH, ENDPOINT_BASIC_AUTH,null, null, null, AuthType.BASIC_AUTH, ContentType.ANY);
 		boolean flag = response.asString().contains("Congratulations! You must have the proper credentials");
 		Assert.assertTrue(flag);
 	}

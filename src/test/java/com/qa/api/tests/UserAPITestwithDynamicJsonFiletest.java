@@ -29,21 +29,18 @@ public class UserAPITestwithDynamicJsonFiletest extends BaseTest {
 		
 		try {
 			JsonNode userNode = mapper.readTree(Files.readAllBytes(Paths.get(jsonFilePath)));
-			
 			//update the email id:
 			ObjectNode obj = ((ObjectNode)userNode);
 			obj.put("email",UtilString.getRandomEmailId() );
-			
 			
 			//convert jsonnode o jsonString
 			String updatedJsonstring = mapper.writeValueAsString(userNode);
 			System.out.println(updatedJsonstring);
 			
-			Response postResponse = restclient.post(BASE_URL_GOREST, ENDPOINT_GOREST_USERS, updatedJsonstring, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+			Response postResponse = restclient.post(BASE_URL_GOREST, ENDPOINT_GOREST_USERS, updatedJsonstring,null, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 			Assert.assertEquals(postResponse.statusCode(), 201);
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

@@ -18,7 +18,7 @@ public class ProductAPIWithDeserializationtest extends BaseTest {
 	public void getProductAPIwithDeserialization() {
 		
 		
-		Response response = restclient.get(BASE_URL_PRODUCTS,ENDPOINT_PRODUCTS, null, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response response = restclient.get(BASE_URL_PRODUCTS,ENDPOINT_PRODUCTS,null, null, null, AuthType.NO_AUTH, ContentType.JSON);
 		Assert.assertEquals(response.statusCode(), 200);
 		
 		Product[] product = JSONMapperUtil.deserialization(response, Product[].class);

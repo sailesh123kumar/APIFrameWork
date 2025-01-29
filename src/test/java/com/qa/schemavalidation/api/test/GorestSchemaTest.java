@@ -21,7 +21,7 @@ public class GorestSchemaTest extends BaseTest {
 				.status("inactive").build();
 
 		// POST
-		Response postresponse = restclient.post(BASE_URL_GOREST, ENDPOINT_GOREST_USERS, user, null, null,
+		Response postresponse = restclient.post(BASE_URL_GOREST, ENDPOINT_GOREST_USERS, user,null, null, null,
 				AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(postresponse.getStatusCode(), 201);
 
@@ -30,7 +30,7 @@ public class GorestSchemaTest extends BaseTest {
 		System.out.println("User ID ===> " + userId);
 
 		// GET
-		Response getresponse = restclient.get(BASE_URL_GOREST, ENDPOINT_GOREST_USERS + userId, null, null,
+		Response getresponse = restclient.get(BASE_URL_GOREST, ENDPOINT_GOREST_USERS + userId,null, null, null,
 				AuthType.BEARER_TOKEN, ContentType.JSON);
 		
 		Assert.assertTrue(SchemaValidator.validateschema(getresponse, "schema/user-schema.json"));

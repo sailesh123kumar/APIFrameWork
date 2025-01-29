@@ -18,7 +18,7 @@ public class MockDeleteUser extends BaseTest {
 	public void deleteUserMockAPITest() {
 		
 		APIMocks.deleteUser(ENDPOINT_MOCK_USERS_DELETE);
-		Response response = restclient.delete(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_DELETE, null, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response response = restclient.delete(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_DELETE,null, null, null, AuthType.NO_AUTH, ContentType.JSON);
 		
 		
 		response.then()

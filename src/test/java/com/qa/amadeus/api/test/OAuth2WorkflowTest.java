@@ -19,7 +19,7 @@ public class OAuth2WorkflowTest extends BaseTest {
 	public void getFlightDetailsTest() {
 		
 		Map<String, String> queryParam = Map.of("origin" , "PAR" , "maxPrice" , "200");
-		Response response = restclient.get(BASE_URL_AMADEUS, "/v1/shopping/flight-destinations", queryParam, null, AuthType.OAUTH2, ContentType.JSON);
+		Response response = restclient.get(BASE_URL_AMADEUS, "/v1/shopping/flight-destinations",null, queryParam, null, AuthType.OAUTH2, ContentType.JSON);
 		Assert.assertEquals(response.statusCode(), 200);
 		
 	}

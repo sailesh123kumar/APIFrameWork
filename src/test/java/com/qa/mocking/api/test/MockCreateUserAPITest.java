@@ -22,7 +22,7 @@ public class MockCreateUserAPITest extends BaseTest{
 		
 		String dummyJson="{\"bookName\": \"comics\"}";
 		
-		Response post = restclient.post(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_GET, dummyJson, null, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response post = restclient.post(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_GET, dummyJson,null, null, null, AuthType.NO_AUTH, ContentType.JSON);
 		Assert.assertEquals(post.statusCode(), 201);
 		Assert.assertEquals(post.statusLine(), "HTTP/1.1 201 Created");
 	}
@@ -35,7 +35,7 @@ public class MockCreateUserAPITest extends BaseTest{
 		
 		String dummyJson="{\"bookName\": \"comics\"}";
 		
-		Response post = restclient.post(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_GET, dummyJson, null, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response post = restclient.post(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_GET, dummyJson,null, null, null, AuthType.NO_AUTH, ContentType.JSON);
 		Assert.assertEquals(post.statusCode(), 201);
 		Assert.assertEquals(post.statusLine(), "HTTP/1.1 201 Created");
 	}

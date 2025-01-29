@@ -18,7 +18,7 @@ public class ProductAPIwithJsonPathTest extends BaseTest {
 	
 	@Test
 	public void getProductTest() {
-		Response response = restclient.get(BASE_URL_PRODUCTS,ENDPOINT_PRODUCTS, null, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response response = restclient.get(BASE_URL_PRODUCTS,ENDPOINT_PRODUCTS,null, null, null, AuthType.NO_AUTH, ContentType.JSON);
 		Assert.assertEquals(response.statusCode(), 200);
 		
 		List<Number> prices = JsonPathUtil.readList(response, "$[?(@.price > 50)].price");

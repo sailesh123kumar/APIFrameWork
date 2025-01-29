@@ -14,7 +14,7 @@ import io.restassured.response.Response;
 public class ProductsAPIest extends BaseTest {
 	@Test
 	public void getProductsAPITest() {
-		Response response = restclient.get(BASE_URL_PRODUCTS,ENDPOINT_PRODUCTS, null, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response response = restclient.get(BASE_URL_PRODUCTS,ENDPOINT_PRODUCTS,null, null, null, AuthType.NO_AUTH, ContentType.JSON);
 		Assert.assertEquals(response.statusCode(), 200);
 
 	}
@@ -23,7 +23,7 @@ public class ProductsAPIest extends BaseTest {
 	public void getproductLimitTest() {
 		Map<String, String> queryParam = Map.of("limit" , "5");
 		
-		Response response = restclient.get(BASE_URL_PRODUCTS,ENDPOINT_PRODUCTS, queryParam, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response response = restclient.get(BASE_URL_PRODUCTS,ENDPOINT_PRODUCTS,null, queryParam, null, AuthType.NO_AUTH, ContentType.JSON);
 		Assert.assertEquals(response.statusCode(), 200);
 	}
 }

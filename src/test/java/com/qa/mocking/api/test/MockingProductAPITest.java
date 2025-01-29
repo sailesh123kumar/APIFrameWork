@@ -17,7 +17,7 @@ public class MockingProductAPITest extends BaseTest {
 	public void getDummyProductswithJsonFileMockServertest() {
 		APIMocks.getStubwithJsonFile(ENDPOINT_MOCK_PRODUCTS_GET, "product.json");
 		
-		Response response = restclient.get(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_PRODUCTS_GET, null, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response response = restclient.get(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_PRODUCTS_GET,null, null, null, AuthType.NO_AUTH, ContentType.JSON);
 		Assert.assertEquals(response.statusCode(), 200);
 	} 
 

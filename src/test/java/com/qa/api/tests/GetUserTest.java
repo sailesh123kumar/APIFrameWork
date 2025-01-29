@@ -20,7 +20,7 @@ public class GetUserTest extends BaseTest {
 		queryParam.put("name", "naveen");
 		queryParam.put("status", "active");
 		
-		Response response = restclient.get(BASE_URL_GOREST,ENDPOINT_GOREST_USERS, queryParam, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+		Response response = restclient.get(BASE_URL_GOREST,ENDPOINT_GOREST_USERS,null, queryParam, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(response.statusCode(), 200);
 		
 	}

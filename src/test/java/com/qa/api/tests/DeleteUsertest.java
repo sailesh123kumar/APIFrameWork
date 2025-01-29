@@ -23,7 +23,7 @@ public class DeleteUsertest  extends BaseTest{
 				.build();
 		
 		//1.POST: Create the user
-		Response postresponse = restclient.post(BASE_URL_GOREST,ENDPOINT_GOREST_USERS, user, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+		Response postresponse = restclient.post(BASE_URL_GOREST,ENDPOINT_GOREST_USERS, user,null, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(postresponse.getStatusCode(), 201);
 		
 		
@@ -32,7 +32,7 @@ public class DeleteUsertest  extends BaseTest{
 		System.out.println("User ID ===> "+userId);
 		
 		//2.GET: fetch the same user using userId
-		Response getresponse = restclient.get(BASE_URL_GOREST,ENDPOINT_GOREST_USERS+userId, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+		Response getresponse = restclient.get(BASE_URL_GOREST,ENDPOINT_GOREST_USERS+userId,null, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(getresponse.statusCode(), 200);
 		Assert.assertEquals(getresponse.jsonPath().getString("id"), userId);
 		
@@ -40,11 +40,11 @@ public class DeleteUsertest  extends BaseTest{
 		user.setEmail(UtilString.getRandomEmailId());
 		
 		//3.DELETE: update the same user using the same userid
-		Response delresponse = restclient.delete(BASE_URL_GOREST,ENDPOINT_GOREST_USERS+userId, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+		Response delresponse = restclient.delete(BASE_URL_GOREST,ENDPOINT_GOREST_USERS+userId,null, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(delresponse.statusCode(), 204);
 		
 		//4.GET: recheck and fetch the user with the same user id
-		Response regetresponse = restclient.get(BASE_URL_GOREST,ENDPOINT_GOREST_USERS+userId, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+		Response regetresponse = restclient.get(BASE_URL_GOREST,ENDPOINT_GOREST_USERS+userId,null, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(regetresponse.statusCode(), 404);
 		Assert.assertEquals(regetresponse.jsonPath().getString("message"), "Resource not found");
 		

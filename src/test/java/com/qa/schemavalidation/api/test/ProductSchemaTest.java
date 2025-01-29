@@ -26,7 +26,7 @@ public class ProductSchemaTest extends BaseTest {
 		 */
 		
 		
-		Response response = restclient.get(BASE_URL_PRODUCTS,ENDPOINT_PRODUCTS, null, null, AuthType.NO_AUTH, ContentType.ANY);
+		Response response = restclient.get(BASE_URL_PRODUCTS,ENDPOINT_PRODUCTS,null, null, null, AuthType.NO_AUTH, ContentType.ANY);
 		Assert.assertTrue(SchemaValidator.validateschema(response, "schema/product-schema.json"));
 	}
 

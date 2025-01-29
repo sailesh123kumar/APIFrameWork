@@ -18,7 +18,7 @@ public class MockingUserAPITest extends BaseTest {
 	public void getDummyUserwitMockServerTest() {
 		APIMocks.getStubUser(ENDPOINT_MOCK_USERS_GET, "{\r\n" + "    \"bookName\": \"sailesh Mock server\",\r\n" + "}");
 		
-		Response response = restclient.get(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_GET, null, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response response = restclient.get(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_GET,null, null, null, AuthType.NO_AUTH, ContentType.JSON);
 		Assert.assertEquals(response.statusCode(), 200);
 	}
 	
@@ -27,7 +27,7 @@ public class MockingUserAPITest extends BaseTest {
 	public void getDummyUserwitJsonFileMockServerTest() {
 		APIMocks.getStubwithJsonFile(ENDPOINT_MOCK_USERS_GET, "Users.json");
 		
-		Response response = restclient.get(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_GET, null, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response response = restclient.get(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_GET,null, null, null, AuthType.NO_AUTH, ContentType.JSON);
 		Assert.assertEquals(response.statusCode(), 200);
 	}
 	
@@ -38,7 +38,7 @@ public class MockingUserAPITest extends BaseTest {
 		
 		Map<String, String> queryParam = Map.of("name","sailesh");
 		
-		Response response = restclient.get(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_GET, queryParam, null, AuthType.NO_AUTH, ContentType.JSON);
+		Response response = restclient.get(BASE_URL_LOCALHOST_PORT, ENDPOINT_MOCK_USERS_GET,null, queryParam, null, AuthType.NO_AUTH, ContentType.JSON);
 		Assert.assertEquals(response.statusCode(), 200);
 		Assert.assertEquals(response.statusLine(), "HTTP/1.1 200 OK");
 	}

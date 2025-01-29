@@ -9,7 +9,7 @@ public class WireMockSetup {
 	
 	public static void startWireMockServer() {
 		server = new WireMockServer(8089);
-		WireMock.configureFor("localhost", 8089);
+		WireMock.configureFor("localhost" , 8089);
 		server.start();
 	}
 

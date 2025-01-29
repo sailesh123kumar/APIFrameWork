@@ -31,7 +31,7 @@ public class CreateUserTest extends BaseTest {
 	public void createUserTest(String name, String gender,String status) {
 
 		User user = new User(null,name,UtilString.getRandomEmailId(),gender,status);
-		Response response = restclient.post(BASE_URL_GOREST,"/public/v2/users", user, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+		Response response = restclient.post(BASE_URL_GOREST,"/public/v2/users", user,null, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(response.getStatusCode(), 201);
 	}
 
@@ -47,7 +47,7 @@ public class CreateUserTest extends BaseTest {
 				.build();
 		
 		//POST
-		Response postresponse = restclient.post(BASE_URL_GOREST,ENDPOINT_GOREST_USERS, user, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+		Response postresponse = restclient.post(BASE_URL_GOREST,ENDPOINT_GOREST_USERS, user,null, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(postresponse.getStatusCode(), 201);
 		
 		
@@ -56,7 +56,7 @@ public class CreateUserTest extends BaseTest {
 		System.out.println("User ID ===> "+userId);
 		
 		//GET
-		Response getresponse = restclient.get(BASE_URL_GOREST,ENDPOINT_GOREST_USERS+userId, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+		Response getresponse = restclient.get(BASE_URL_GOREST,ENDPOINT_GOREST_USERS+userId,null, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(getresponse.statusCode(), 200);
 		Assert.assertEquals(getresponse.jsonPath().getString("id"), userId);
 		Assert.assertEquals(getresponse.jsonPath().getString("name"), user.getName());
@@ -68,7 +68,7 @@ public class CreateUserTest extends BaseTest {
 		
 		File userJsonFile = new File(".\\src\\resources\\jsons\\Users.json");
 		
-		Response response = restclient.post(BASE_URL_GOREST,ENDPOINT_GOREST_USERS, userJsonFile, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
+		Response response = restclient.post(BASE_URL_GOREST,ENDPOINT_GOREST_USERS, userJsonFile,null, null, null, AuthType.BEARER_TOKEN, ContentType.JSON);
 		Assert.assertEquals(response.getStatusCode(), 201);
 	}
 }
