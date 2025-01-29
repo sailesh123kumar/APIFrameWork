@@ -176,7 +176,7 @@ public class RestClient {
 			AuthType authType, ContentType contentType) {
 		
 		RequestSpecification request = setUpAuthandContentType(baseUrl,authType, contentType);
-		applyParams(request, queryParam, pathParam);
+		applyParams(request,headersParam, queryParam, pathParam);
 		
 		Response response = request.body(body).post(endpoint).then().spec(responseSpec200or201).extract().response();
 		response.prettyPrint();
@@ -201,7 +201,7 @@ public class RestClient {
 			AuthType authType, ContentType contentType) {
 		
 		RequestSpecification request = setUpAuthandContentType(baseUrl,authType, contentType);
-		applyParams(request, queryParam, pathParam);
+		applyParams(request,headersParam, queryParam, pathParam);
 		
 		Response response = request.body(body).post(endpoint).then().spec(responseSpec200or201).extract().response();
 		response.prettyPrint();
@@ -226,7 +226,7 @@ public class RestClient {
 			AuthType authType, ContentType contentType) {
 		
 		RequestSpecification request = setUpAuthandContentType(baseUrl,authType, contentType);
-		applyParams(request, queryParam, pathParam);
+		applyParams(request,headersParam, queryParam, pathParam);
 		
 		Response response = request.body(body).put(endpoint).then().spec(responseSpec200).extract().response();
 		response.prettyPrint();
@@ -250,7 +250,7 @@ public class RestClient {
 			AuthType authType, ContentType contentType) {
 		
 		RequestSpecification request = setUpAuthandContentType(baseUrl,authType, contentType);
-		applyParams(request, queryParam, pathParam);
+		applyParams(request,headersParam, queryParam, pathParam);
 		
 		Response response = request.body(body).patch(endpoint).then().spec(responseSpec200).extract().response();
 		response.prettyPrint();
@@ -272,7 +272,7 @@ public class RestClient {
 			AuthType authType, ContentType contentType) {
 		
 		RequestSpecification request = setUpAuthandContentType(baseUrl,authType, contentType);
-		applyParams(request, queryParam, pathParam);
+		applyParams(request,headersParam, queryParam, pathParam);
 		
 		Response response = request.delete(endpoint).then().spec(responseSpec204).extract().response();
 		response.prettyPrint();
